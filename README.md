@@ -141,5 +141,4 @@ docker-compose down
 ## Conclusão
 
 Este projeto é uma base perfeita para simular ambientes DevOps com balanceamento de carga, compartilhamento de dados e ferramentas essenciais, tudo em containers Debian e com execução local via WSL2 + Docker Desktop.
-
 Ideal para aprender conceitos de cluster, testes de rede e automação com Compose.
