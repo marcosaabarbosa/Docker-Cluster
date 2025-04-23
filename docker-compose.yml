@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  node1:
+    build: .
+    container_name: node1
+    environment:
+      - NODE_NAME=node1
+    volumes:
+      - ./shared:/shared
+
+  node2:
+    build: .
+    container_name: node2
+    environment:
+      - NODE_NAME=node2
+    volumes:
+      - ./shared:/shared
+
+  node3:
+    build: .
+    container_name: node3
+    environment:
+      - NODE_NAME=node3
+    volumes:
+      - ./shared:/shared
+
+  loadbalancer:
+    image: nginx:latest
+    container_name: loadbalancer
+    depends_on:
+      - node1
+      - node2
+      - node3
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
